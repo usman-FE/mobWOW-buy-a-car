@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./dist/main.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+
+  <!-- <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script> -->
+  <script defer src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"></script>
+
+  <title>mobWOW | Car Discovry</title>
+</head>
+
+<body>
+  <!-- MAIN CONTAINER START -->
+  <main class="h-full">
+    <!-- RED BOX -->
+    <div class="bg-[#ff0020] hidden lg:block fixed top-0 right-0 left-3/4 bottom-0"></div>
+    <!-- HEADER START -->
+    <header class="container mx-auto px-[15px] xl:max-w-[1200px]">
+      <!-- LOGO -->
+      <div class="py-8">
+        <a href="#" class="w-32 block">
+          <img src="images/mobWOW-Base-Logo-Red (2).svg" alt="Logo" title="Logo" class="w-full h-auto">
+        </a>
+      </div>
+    </header>
+    <!-- HEADER END -->
+    <!-- ONBOARDING SECTION -->
+    <section class="container mx-auto px-[15px] xl:max-w-[1200px] py-8" x-data="{
+        progress: 5,
+      }">
+
+      <!-- BREADCRUMBS & PROGRESS -->
+      <div class="flex w-full md:max-w-[60%] justify-between">
+        <!-- BREADCRUMB -->
+        <a href="index.html"
+          class="capitalize inline-flex items-center underline text-gray-700 transition-all hover:text-[#ff0020]">
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
+              <path fill-rule="evenodd"
+                d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z"
+                clip-rule="evenodd" />
+            </svg>
+          </span>
+          <span class="text-base">back</span>
+        </a>
+        <!-- PROGRESS -->
+        <span class="text-base text-[#000000de]"><span x-text="progress"></span>% completed</span>
+      </div>
+
+      <!-- PROGRESS BAR -->
+      <div class="relative w-full md:max-w-[60%] mt-2">
+        <div class="bg-[#e0e0e0] w-full h-2 rounded-xl"></div>
+        <div :style="'width:' + progress + '%'" class="absolute top-0 left-0 h-2 rounded-xl bg-[#ff0020]"></div>
+      </div>
+
+      <!-- SECTION HEADING -->
+      <div class="py-8">
+        <h1 class="text-3xl md:text-4xl tracking-tight font-bold font-['Roboto'] my-2">What’s your budget?</h1>
+        <p class="text-[#0000009e] text-lg">Choose a range for your new car</p>
+      </div>
+
+      <!-- BUDGET FORM -->
+      <div class="">
+        <form>
+          <!-- RADIO BUTTONS -->
+          <div class="flex items-center">
+            <div class="basis-1/2 md:basis-0">
+              <input type="radio" id="monthly" name="paymentType" value="monthly" class="peer hidden" checked />
+              <label for="monthly"
+                class="text-[#ff0020] peer-checked:text-white peer-checked:bg-[#ff0020] border rounded-l-md border-[#ff0020] hover:bg-[#ff0020]/10 py-1 px-3 cursor-pointer transition-all select-none block">Monthly</label>
+            </div>
+            <div class="basis-1/2 md:basis-0">
+              <input type="radio" id="cash" name="paymentType" value="cash" class="peer hidden" />
+              <label for="cash"
+                class="text-[#ff0020] peer-checked:text-white peer-checked:bg-[#ff0020] border rounded-r-md border-[#ff0020] hover:bg-[#ff0020]/10 py-1 px-3 cursor-pointer transition-all select-none block">Cash</label>
+            </div>
+          </div>
+          <!-- MIN MAX DROPDOWNS -->
+
+        </form>
+      </div>
+
+    </section>
+  </main>
+  <!-- MAIN CONTAINER END -->
+</body>
+
+</html>
