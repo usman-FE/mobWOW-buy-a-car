@@ -34,55 +34,40 @@
     <!-- HEADER END -->
     <!-- ONBOARDING SECTION -->
     <section class="container mx-auto px-[15px] xl:max-w-[1200px] py-8" x-data="{
-        progress: 38,
-        equipments: [
+        progress: 44,
+        bootSpace: [
           {
-            name: 'parking sensors',
-            id: 'parking-sensors'
+            suitcase: 'Any',
+            litres: false
           },
           {
-            name: 'satnav',
-            id: 'satnav'
+            suitcase: '1 suitcase',
+            litres: '120 litres'
           },
           {
-            name: 'rearview camera',
-            id: 'rearview-camera'
+            suitcase: '2 suitcases',
+            litres: '240 litres'
           },
           {
-            name: 'climate control',
-            id: 'climate-control'
+            suitcase: '3 suitcases',
+            litres: '360 litres'
           },
           {
-            name: 'cruise control',
-            id: 'cruise-control'
+            suitcase: '4 suitcases',
+            litres: '480 litres'
           },
           {
-            name: 'touchscreen infotainment',
-            id: 'touchscreen-infotainment'
+            suitcase: '5+ suitcases',
+            litres: '600 litres'
           },
-          {
-            name: 'heated seats',
-            id: 'heated-seats'
-          },
-          {
-            name: 'apple CarPlay',
-            id: 'apple-carplay'
-          },
-          {
-            name: 'leather seats',
-            id: 'leather-seats'
-          },
-          {
-            name: 'android auto',
-            id: 'android-auto'
-          },
+          
         ]
       }">
 
       <!-- BREADCRUMBS & PROGRESS -->
       <div class="flex w-full md:max-w-[60%] justify-between">
         <!-- BREADCRUMB -->
-        <a href="buy-fuel-type-page.html"
+        <a href="buy-equipment-page.html"
           class="capitalize inline-flex items-center underline text-gray-700 transition-all hover:text-[#ff0020]">
           <span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
@@ -106,10 +91,10 @@
       <!-- SECTION HEADING -->
       <div class="py-8">
         <h1 class="text-3xl md:text-4xl tracking-tight font-bold font-['Roboto'] my-2 max-w-2xl">
-          Which popular standard equipment do you want?
+          What's the minimum boot space you need?
         </h1>
         <p class="text-[#0000009e] text-lg max-w-2xl">
-          This helps narrow down our recommendations. You can customise your car with additional equipment later.
+          This is roughly the number of large suitcases that will fit in the boot with the seats up.
         </p>
       </div>
 
@@ -117,15 +102,18 @@
       <div class="pb-20">
         <form>
           <ul class="flex flex-wrap gap-y-2 gap-x-3 w-full md:max-w-[60%]">
-            <template x-for="(equipment, index) in equipments" :key="index">
+            <template x-for="(space, index) in bootSpace" :key="index">
               <li class="basis-full">
                 <div class="relative w-full flex">
-                  <input type="checkbox" :name="equipment.id" :id="equipment.id" :value="equipment.id"
+                  <input type="radio" name="bootSpace" :id="space.suitcase" :value="space.suitcase"
                     class="absolute h-6 w-6 bg-white rounded cursor-pointer ml-3 top-1/2 -translate-y-1/2 inline-block peer checked:accent-[#ff0020]">
-                  <label :for="equipment.id"
+                  <label :for="space.suitcase"
                     class="cursor-pointer peer-checked:text-[#ff0020] peer-checked:border-[#ff0020] peer-checked:bg-[#ff0020]/10 border border-[#616161] hover:border-black transition-all rounded-xl w-full h-full bg-white p-3 pl-11 text-[#000000de]">
                     <span class="flex flex-col justify-center items-start text-left">
-                      <span class="text-inherit capitalize select-none" x-text="equipment.name"></span>
+                      <span class="text-inherit capitalize select-none mb-2" x-text="space.suitcase"></span>
+                      <span class="capitalize select-none text-[#0000009e]" x-show="space.litres">
+                        (<span x-text="space.litres ? space.litres : ''"></span>)
+                      </span>
                     </span>
                   </label>
                 </div>
@@ -138,11 +126,11 @@
       <footer class="fixed bottom-0 left-0 right-0 z-20">
         <div class="container mx-auto px-[15px] xl:max-w-[1200px]">
           <div class="border-t border-[#0000001f] w-full md:max-w-[60%] flex py-4 gap-4 bg-white">
-            <a href="buy-boot-space-page.html"
+            <a href="#"
               class="drop-shadow-lg z-10 before:block before:absolute before:left-auto before:right-0 before:inset-y-0 before:-z-[1] before:bg-[#ff0020] before:w-0 hover:before:w-full hover:before:left-0 hover:before:right-auto before:transition-all before:duration-300 transition-all duration-300 leading-none px-[20px] py-[15px] uppercase font-medium text-[#ff0020] hover:text-white block text-[14px] xl:text-[16px] relative after:block after:absolute after:inset-0 after:-z-[2] after:bg-white  after:transition-all border border-[#ff0020] hover:border-[#ff0020] basis-full text-center">
               Skip
             </a>
-            <a href="buy-boot-space-page.html"
+            <a href="#"
               class="drop-shadow-lg z-10 before:block before:absolute before:left-auto before:right-0 before:inset-y-0 before:-z-[1] before:bg-white before:w-0 hover:before:w-full hover:before:left-0 hover:before:right-auto before:transition-all before:duration-300 transition-all duration-300 leading-none px-[20px] py-[15px] uppercase font-medium text-white hover:text-[#ff0020] block text-[14px] xl:text-[16px] relative after:block after:absolute after:inset-0 after:-z-[2] after:bg-[#ff0020]  after:transition-all border border-[#ff0020] hover:border-[#ff0020] basis-full text-center">
               Next
             </a>
